@@ -1,13 +1,14 @@
-E-Commerce App
+# E-Commerce App
 
 Este proyecto es una aplicación de comercio electrónico construida con React y React Router. La aplicación incluye un sistema de enrutamiento para navegar entre diferentes páginas, un diseño común (Layout) que se aplica a todas las páginas, y un sistema de autenticación para proteger rutas privadas.
-El objetivo de la aplicacion es permitir a usuarios que se registren, que presenten las credenciales y puedan agregar, modificar o borrar artículos que son mostrados en el Home para que cualquier visitante pueda ver los productos ofrecidos por la tienda.
-Las credenciales y los articulos son gestionados a traves de Firebase.
 
-Estructura del Proyecto
+El objetivo de la aplicación es permitir a los usuarios registrarse, iniciar sesión y gestionar artículos (agregar, modificar o borrar) que son mostrados en la página principal para que cualquier visitante pueda ver los productos ofrecidos por la tienda. Las credenciales y los artículos son gestionados a través de Firebase.
 
-Árbol del Proyecto
+## Estructura del Proyecto
 
+### 🌟 Árbol del Proyecto
+
+```
 src/
 ├── components/
 │   ├── AppRouter.js       # Configuración de rutas principales
@@ -28,75 +29,74 @@ src/
 │   ├── MAIN.png           # Imagen de fondo para el contenido principal
 ├── App.js                 # Punto de entrada de la aplicación
 ├── index.js               # Renderizado de la aplicación en el DOM
+```
 
-AppRouter
+## ✨ AppRouter
 
-El componente AppRouter es el núcleo del enrutamiento de la aplicación. Utiliza react-router-dom para definir las rutas y los componentes que se renderizan en cada una de ellas. Las rutas se ocultan segun el usuario este o no autenticado en la aplicacion. Las rutas incluyen:
+El componente **AppRouter** es el núcleo del enrutamiento de la aplicación. Utiliza `react-router-dom` para definir las rutas y los componentes que se renderizan en cada una de ellas. Las rutas se ocultan según si el usuario está autenticado o no.
 
-    Página de inicio (/): Muestra la página principal de la aplicación.
+Las rutas incluyen:
 
-    Dashboard (/dashboard): Una ruta protegida que solo es accesible para usuarios autenticados.
+- **Página de inicio (`/`)**: Muestra la página principal de la aplicación.
+- **Dashboard (`/dashboard`)**: Ruta protegida, accesible solo para usuarios autenticados.
+- **Registro (`/register`)**: Permite a los usuarios registrarse en la aplicación.
+- **Inicio de sesión (`/login`)**: Permite a los usuarios iniciar sesión.
+- **Página no encontrada (`*`)**: Muestra un mensaje de error 404 cuando la ruta no existe.
 
-    Registro (/register): Permite a los usuarios registrarse en la aplicación.
+## 🔄 Layout
 
-    Inicio de sesión (/login): Permite a los usuarios iniciar sesión.
+El componente **Layout** define la estructura común de la aplicación, que incluye:
 
-    Página no encontrada (*): Muestra un mensaje de error 404 cuando la ruta no existe.
+- **Encabezado (Header)**: Título de la aplicación con un fondo personalizado.
+- **Barra de navegación (Nav)**: Contiene enlaces a las páginas principales y cambia dinámicamente según el estado de autenticación del usuario.
+  - Si el usuario está autenticado: muestra un enlace al dashboard y un botón para cerrar sesión.
+  - Si no está autenticado: muestra enlaces para iniciar sesión y registrarse.
+- **Contenido principal (Main)**: Se renderiza el contenido específico de cada página.
+- **Pie de página (Footer)**: Muestra información sobre el desarrollador y un enlace a su perfil de LinkedIn.
 
-Layout
+## 💡 Funcionalidades clave
 
-El componente Layout define la estructura común de la aplicación, que incluye:
+- **Autenticación con Firebase**: Registro, inicio de sesión y cierre de sesión de usuarios.
+- **Protección de rutas**: Las rutas privadas (como el dashboard) solo son accesibles para usuarios autenticados.
+- **Diseño responsive**: Adaptable a diferentes tamaños de pantalla con Bulma CSS.
+- **Fondos personalizados**: Mejora la experiencia visual con diseño atractivo.
 
-    Encabezado (Header): Muestra el título de la aplicación con un fondo personalizado.
+## 🤖 Tecnologías utilizadas
 
-    Barra de navegación (Nav): Contiene enlaces a las páginas principales y cambia dinámicamente según el estado de autenticación del usuario. Si el usuario está autenticado, muestra un enlace al dashboard y un botón para cerrar sesión. Si no está autenticado, muestra enlaces para iniciar sesión y registrarse.
+- **React**: Biblioteca principal para la interfaz de usuario.
+- **React Router**: Manejo de rutas y navegación.
+- **Firebase**: Autenticación de usuarios.
+- **Bulma CSS**: Framework de estilos.
+- **Context API**: Manejo del estado global del usuario.
 
-    Contenido principal (Main): Aquí se renderiza el contenido específico de cada página.
+## 🛠️ Cómo ejecutar el proyecto
 
-    Pie de página (Footer): Muestra información sobre el desarrollador y un enlace a su perfil de LinkedIn.
+1. **Clona el repositorio**:
+   ```sh
+   git clone https://github.com/tu-usuario/ecommerce-app.git
+   cd ecommerce-app
+   ```
+2. **Instala las dependencias**:
+   ```sh
+   npm install
+   ```
+3. **Configura Firebase**:
+   - Crea un proyecto en Firebase.
+   - Agrega las credenciales en un archivo `.env` según la estructura presentada en `.env.example`.
+   - Habilita el servicio de autenticación en la consola de Firebase.
+4. **Inicia la aplicación**:
+   ```sh
+   npm start
+   ```
+5. **Accede a la aplicación** en [http://localhost:3000](http://localhost:3000).
 
-Funcionalidades clave
+## 👨‍💻 Desarrollador
 
-    Autenticación con Firebase: La aplicación utiliza Firebase para gestionar la autenticación de usuarios, incluyendo registro, inicio de sesión y cierre de sesión.
+Este proyecto fue desarrollado por **Mauricio Sinelli**. Puedes contactarme a través de mi perfil de LinkedIn.
 
-    Protección de rutas: Las rutas privadas (como el dashboard) están protegidas y solo son accesibles para usuarios autenticados.
+Una versión compilada está disponible en **Vercel** para pruebas.
 
-    Diseño responsive: El diseño se adapta a diferentes tamaños de pantalla utilizando estilos personalizados y clases de Bulma CSS.
+---
 
-    Fondos personalizados: El encabezado y el contenido principal tienen fondos personalizados que mejoran la experiencia visual.
+✨ *¡Gracias por revisar mi proyecto! Si tienes alguna pregunta o sugerencia, no dudes en contactarme.* 😊
 
-Tecnologías utilizadas
-
-    React: Biblioteca principal para la construcción de la interfaz de usuario.
-
-    React Router: Para el manejo de rutas y navegación.
-
-    Firebase: Para la autenticación de usuarios.
-
-    Bulma CSS: Framework de estilos para el diseño de la aplicación.
-
-    Context API: Para gestionar el estado global del usuario.
-
-Cómo ejecutar el proyecto
-
-    Clona el repositorio.
-
-    Instala las dependencias con npm install.
-
-    Configura Firebase:
-
-        Crea un proyecto en Firebase.
-
-        Agrega las credenciales en un archivo .env segun la estructura presentada en .env.example.
-
-        Habilita el servicio de autenticación en la consola de Firebase.
-
-    Inicia la aplicación con npm start.
-
-    Accede a la aplicación en http://localhost:3000.
-
-Desarrollador
-
-Este proyecto fue desarrollado por Mauricio Sinelli. Puedes contactarme a través de mi perfil de LinkedIn. Esta disponible una version compilada en VERCEL que puede ser ensayada en la base de prueba del desarrollador.
-
-¡Gracias por revisar mi proyecto! Si tienes alguna pregunta o sugerencia, no dudes en contactarme. 😊
